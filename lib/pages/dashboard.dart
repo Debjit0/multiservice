@@ -91,7 +91,10 @@ class _DashboardState extends State<Dashboard> {
 
   _buildBody() {
     return Column(
-      children: [],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("Services", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)
+      ],
     );
   }
 }
