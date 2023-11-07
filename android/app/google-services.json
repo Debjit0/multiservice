@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "786699485546",
+    "project_id": "multiservice-aa4e9",
+    "storage_bucket": "multiservice-aa4e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:786699485546:android:b94ca05651b81d1e202513",
+        "android_client_info": {
+          "package_name": "com.example.multiservice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANMid5S8yz0TfDVLubWGjjPmihOIgiYyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
