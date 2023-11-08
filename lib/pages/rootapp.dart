@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:multiservice/Widgets/bottombar_item.dart';
+import 'package:multiservice/pages/allservices.dart';
+import 'package:multiservice/pages/allvendors.dart';
 import 'package:multiservice/pages/dashboard.dart';
 import 'package:multiservice/theme/color.dart';
-
-
 
 
 class RootApp extends StatefulWidget {
@@ -23,14 +23,14 @@ class _RootAppState extends State<RootApp> {
       "page": Dashboard(),
     },
     {
-      "icon": Icons.search_outlined,
-      "active_icon": Icons.search,
-      "page": Dashboard(),
+      "icon": Icons.moped,
+      "active_icon": Icons.moped,
+      "page": AllServices(),
     },
     {
-      "icon": Icons.favorite_border,
-      "active_icon": Icons.favorite_outlined,
-      "page": Dashboard(),
+      "icon": Icons.groups,
+      "active_icon": Icons.groups,
+      "page": AllVendors(),
     },
     {
       "icon": Icons.forum_outlined,

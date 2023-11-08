@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
 import 'package:multiservice/Widgets/custom_image_profile.dart';
+import 'package:multiservice/Widgets/recommend_item.dart';
 import 'package:multiservice/pages/authGoogle.dart';
 import 'package:multiservice/theme/color.dart';
+import 'package:multiservice/utils/data.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -93,8 +95,38 @@ class _DashboardState extends State<Dashboard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Services", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)
+        SizedBox(height: 20,),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Services", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+              Text("See All", style: TextStyle(color: Colors.grey),)
+            ],
+          ),
+        ),
+        SizedBox(height: 10,),
+        _buildRecommended(),
       ],
+    );
+  }
+
+
+
+
+  Widget _buildRecommended() {
+    List<Widget> lists = List.generate(recommended.length, (index) {
+      //print(allResults[index].id);
+      return RecommendItem(
+        data: recommended[index],
+      );
+    });
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.only(bottom: 5, left: 15),
+      child: Row(children: lists),
     );
   }
 }
