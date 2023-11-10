@@ -107,7 +107,18 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
         SizedBox(height: 10,),
-        _buildRecommended(),
+        _buildServices(),
+        SizedBox(height: 10,),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Recent Bookings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+              Text("See All", style: TextStyle(color: Colors.grey),)
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -115,7 +126,7 @@ class _DashboardState extends State<Dashboard> {
 
 
 
-  Widget _buildRecommended() {
+  Widget _buildServices() {
     List<Widget> lists = List.generate(recommended.length, (index) {
       //print(allResults[index].id);
       return RecommendItem(

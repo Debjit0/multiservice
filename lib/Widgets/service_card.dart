@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-
-
-class ServiceCard  extends StatelessWidget{
+class ServiceCard extends StatelessWidget {
   ServiceCard({required this.name, required this.rate});
   String name;
   String rate;
@@ -10,17 +8,30 @@ class ServiceCard  extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
-      child: ListTile(
-        
-        //decoration: BoxDecoration(color: Colors.red),
-        //child: Column(
-          //children: [
-            title:Text(name),
-            subtitle:Text("\$$rate/hr"),
-          //],
-        //)
-      ),
-    );
+        onTap: () {},
+        child: Container(
+          height: 100,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: const Color.fromARGB(255, 226, 226, 226)),
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/Gardening.jpg"),fit: BoxFit.fill), borderRadius: BorderRadius.circular(10)),
+                height: 80,
+                width: 80,
+              ),
+
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10,),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [Text("Gardening"), Text("\$120/hr")],
+                ),
+              )
+            ],
+          ),
+        ));
   }
 }

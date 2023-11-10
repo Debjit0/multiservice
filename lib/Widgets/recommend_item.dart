@@ -37,7 +37,7 @@ class RecommendItem extends StatelessWidget {
         child: Stack(
           children: [
             CustomImage(
-              data["image"],
+              "assets/images/Gardening.jpg",
               radius: 20,
               width: double.infinity,
               height: double.infinity,
@@ -89,25 +89,25 @@ class RecommendItem extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        Row(
-          children: [
-            Icon(
-              Icons.place_outlined,
-              color: Colors.white,
-              size: 13,
-            ),
-            const SizedBox(
-              width: 3,
-            ),
-            Text(
-              data["location"],
-              style: TextStyle(
-                fontSize: 13,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     Icon(
+        //       Icons.place_outlined,
+        //       color: Colors.white,
+        //       size: 13,
+        //     ),
+        //     const SizedBox(
+        //       width: 3,
+        //     ),
+        //     Text(
+        //       data["location"],
+        //       style: TextStyle(
+        //         fontSize: 13,
+        //         color: Colors.white,
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

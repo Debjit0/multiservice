@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:multiservice/Widgets/vendor_card.dart';
 import 'package:multiservice/pages/authGoogle.dart';
 import 'package:multiservice/theme/color.dart';
 
@@ -12,6 +14,23 @@ class AllVendors extends StatefulWidget {
 }
 
 class _AllVendorsState extends State<AllVendors> {
+  bool isLoading = true;
+  var allResults = [];
+  @override
+  void initState() {
+    // TODO: implement initState
+    getAllVendors();
+    super.initState();
+  }
+
+  Future getAllVendors() async {
+    var propDocuments =
+        await FirebaseFirestore.instance.collection("Vendors").get();
+    print("Vendor Length ${propDocuments.docs.length}");
+    allResults = (List.from(propDocuments.docs));
+    print(allResults[0]["name"]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -23,7 +42,8 @@ class _AllVendorsState extends State<AllVendors> {
           floating: true,
           title: _buildHeader(),
         ),
-        SliverToBoxAdapter(child: _buildBody())
+        SliverToBoxAdapter(
+            child: isLoading ? _buildBody() : _buildBodyLoading())
       ],
     );
   }
@@ -62,7 +82,29 @@ class _AllVendorsState extends State<AllVendors> {
     );
   }
 
+  _buildBodyLoading() {
+    return Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
   _buildBody() {
-    return Column();
+    return Column(
+      children: [
+        //Text("data"),
+        ListView.builder(
+          shrinkWrap: true,
+          itemCount: allResults.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.fromLTRB(14, 14, 14, 14),
+              child: VendorCard(
+                  name: allResults[index]["name"],
+                  email: allResults[index]["email"]),
+            );
+          },
+        ),
+      ],
+    );
   }
 }
