@@ -27,7 +27,7 @@ class ServiceCard extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 10,),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [Text("Gardening"), Text("\$120/hr")],
+                  children: [Text(name), Text(rate)],
                 ),
               )
             ],

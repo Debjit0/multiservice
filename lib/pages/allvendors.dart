@@ -19,7 +19,11 @@ class _AllVendorsState extends State<AllVendors> {
   @override
   void initState() {
     // TODO: implement initState
-    getAllVendors();
+    getAllVendors().whenComplete(() {
+      setState(() {
+        isLoading = true;
+      });
+    });
     super.initState();
   }
 
